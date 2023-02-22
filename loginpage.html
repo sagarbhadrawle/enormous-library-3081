@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+<style>
+    body{
+        width: 100%;
+    }
+    .cont{
+        width: 30%;
+        margin: auto;
+        /* text-align: center; */
+    }
+   #social img{
+        width: 30px;
+    }
+    #social{
+        padding-top: 10px;
+        text-align: center;
+        border: 1px solid #000;
+    }
+    #top{
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <div class="cont">
+        <div id="top">
+            <a href="./index.html"><img src="ip3.png" alt=""></a>
+        </div>
+        <div class="main">
+            <hr>
+            <h2>WELCOME TO INDIAN PRIDE</h2>
+            
+            <p>Login / Register with us to get latest updates and manage your orders</p>
+
+            
+            <form>
+          
+            <label for="email">Email</label>
+            <br>
+            <input type="email" placeholder="Enter Your Email" id="email">
+            <br>
+
+            
+
+
+            <label for="psw">Password</label>
+            <br>
+            <input type="password" placeholder="Enter Your Mobile No" id="psw">
+            <br>
+           <br>
+            
+          <button id="btn">Login</button>
+      
+        </form>
+            <p>LOGIN WITH SOCIAL MEDIA </p>
+            <div id="social">
+               <a href=""> <img src="./google.png" alt=""></a><p>Google</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+let lsdata = JSON.parse(localStorage.getItem("added"))||[]
+
+ let password=document.getElementById("psw")
+
+let email= document.getElementById("email")
+let button =document.querySelector("button")
+let home=document.getElementById("top")
+button.addEventListener("click",()=>{
+    let flag=false
+    lsdata.forEach((endd,ind)=>{
+        if(lsdata[ind].email===email.value&&lsdata[ind].password===password.value)
+        {
+            flag=true
+        }
+    })
+    if(flag===false)
+    {
+        alert("Login UnSuccesful")
+        
+    }
+    else{
+        alert("login Succesful")
+        
+    }
+
+
+    
+        
+
+
+})
+
+
+
+</script>
+</html>

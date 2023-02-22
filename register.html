@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<style>
+    body{
+        width: 100%;
+    }
+    .cont{
+        width: 30%;
+        margin: auto;
+        /* text-align: center; */
+    }
+   #social img{
+        width: 30px;
+    }
+    #social{
+        padding-top: 10px;
+        text-align: center;
+        border: 1px solid #000;
+    }
+    #top{
+        text-align: center;
+    }
+</style>
+<body>
+    
+    
+    <div class="cont">
+        <div id="top">
+            <a href="./index.html"><img src="ip3.png" alt=""></a>
+        </div>
+        <div class="main">
+            <hr>
+            <h2>WELCOME TO INDIAN PRIDE</h2>
+            
+            <p> Register with us to get latest updates and manage your orders</p>
+
+            
+            <form>
+
+                <label for="name">Name</label>
+                <br>
+                <input type="text" placeholder="Enter Your Email" id="name">
+                <br>
+
+                <label for="mobile">Mobile</label>
+            <br>
+            <input type="number" placeholder="Enter Your Mobile No" id="mobile">
+            <br>
+          
+            <label for="email">Email</label>
+            <br>
+            <input type="email" placeholder="Enter Your Email" id="email">
+            <br>
+
+            
+            
+
+
+            <label for="psw">Password</label>
+            <br>
+            <input type="password" placeholder="Enter Your Mobile No" id="psw">
+            <br>
+           <br>
+            
+          <button id="btn">Register</button>
+      
+        </form>
+            <p>REGISTER WITH SOCIAL MEDIA </p>
+            <div id="social">
+               <a href=""> <img src="./google.png" alt=""></a><p>Google</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    let lsdata = JSON.parse(localStorage.getItem("added"))||[]
+ let name =document.getElementById("name")
+ let password=document.getElementById("psw")
+let mobile =document.getElementById("mobile")
+let email= document.getElementById("email")
+let button =document.querySelector("button")
+button.addEventListener("click",(e)=>{
+    e.preventDefault()
+alert("Rigestration Succesfully")
+let obj={
+    name:name.value,
+
+    email:email.value,
+    password:password.value,
+    mobile:mobile.value
+    
+}
+lsdata.push(obj)
+localStorage.setItem("added",JSON.stringify(lsdata))
+window.location.assign("http://127.0.0.1:5500/enormous-library-3081/index.html")
+
+        
+
+})
+
+
+</script>
+</html>
