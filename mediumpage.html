@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cont{
+            width: 100%;
+
+        }
+        #box{
+            width: 70%;
+            margin: auto;
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+        <div id="cont">
+            <div id="box">
+
+                <div id="left"></div>
+                <div id="right"></div>
+            </div>
+
+        </div>
+</body>
+<script>
+    let clickdata=JSON.parse(localStorage.getItem("click"))
+    let left= document.getElementById("left")
+    let right= document.getElementById("right")
+   let ar= clickdata[clickdata.length-1]
+   let div= document.createElement("div")
+   div.innerText=ar.image
+   left.append(div)
+   let name = document.createElement("h2")
+   name.innerText=ar.name
+   right.append(name)
+
+
+
+</script>
+</html>

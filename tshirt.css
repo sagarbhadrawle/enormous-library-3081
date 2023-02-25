@@ -63,7 +63,7 @@ body{
     display: flex;
     justify-content: space-evenly;
     display: none;
-    z-index: 1;
+    z-index: 2;
 
     
 }
@@ -199,135 +199,8 @@ body{
 
  }
 
- #image{
-    width: 100%;
- }
- #image img{
-    width: 100%;
- }
- #second{
-    
-    margin-top: -7px;
- }
- #third{
-    
-    margin-top: -7px;
- }
- #fourth{
-    
-    margin-top: -6px;
- }
- #five{
-    
-    margin-top: -6px;
- }
- #six{
-    
-    margin-top: -6px;
- }
+
  
-
- #lastdivforimage{
-    width: 100%;
- }
- #lastdivforimage img{
-    width: 100%;
- }
-
- #footer{
-    width:100%;
- }
-#foot{
-    margin: auto;
-    width: 80%;
-   
-}
-
-#referal{
-    /* width: 70%; */
-    margin: auto;
-    font-size: smaller;
-    font-weight: bold;
-;
-}
-#referal{
-    display: flex;
-    padding: 10px;
-    margin-right:30px;
-    /* border: 1px solid #000; */
-}
-#referal div{
-    border: 1px solid #000;
-    padding: 10px;
-    margin: auto;
-}
-
-#content{
-    padding-top: 20px;
-    width: 100%;
-    display: flex;
-    margin: auto;
-}
-#content a{
-    text-decoration: none;
-    color: black;
-}
-.wallet img{
-    width: 10px;
-    
-}
-.wallet{
- font-size: 10px;
- padding: 10px;
-}
-#content>div{
-    width: 40%;
-    /* border: 1px solid red; */
-}
-
-#s img{
-    width: 20px;
-}
-.s{
-    font-size: 10px;
-    }
-.s:nth-child(1)>a
-{
-    margin-left: 10px;
-    
-   
-}
-.s:nth-child(1)
-{
-    margin-bottom: 9px;
-}
-.s:nth-child(1)~ .s{
-    margin-bottom: 10px;
-}
-
-#t div,p{
-    font-size: 10px;
-}
-#t img{
-    width: 15px;
-}
-#t>div span{
-    margin-left: 10px;
-}
-#f{
-    margin-left: 14px;
-}
-#y{
-    margin-top: 40px;
-}
-
-#content a:hover{
-    text-decoration: underline;
-    color: black;
-}
-#end{
-    font-size: 10px;
-}
 
 #myip{
     position: relative;

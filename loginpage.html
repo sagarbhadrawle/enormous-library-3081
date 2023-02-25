@@ -7,51 +7,82 @@
     <title>login</title>
 <style>
     body{
+        padding: 0px;
+        margin: 0px ;
         width: 100%;
+        background-image: url("https://images.pexels.com/photos/1191710/pexels-photo-1191710.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    }
+    *{
+        box-sizing: border-box;
     }
     .cont{
-        width: 30%;
+        /* padding: 10px; */
+        width: 25%;
         margin: auto;
+        background-color: aliceblue;
+        /* border-radius: 25px; */
+        border: 1px solid #000;
         /* text-align: center; */
     }
    #social img{
         width: 30px;
     }
     #social{
-        padding-top: 10px;
+        /* padding-top: 5px; */
         text-align: center;
         border: 1px solid #000;
+        background-color:blue;
     }
     #top{
         text-align: center;
+    }
+    h2{
+        color: rgb(130, 24, 100);
+        text-align: center;
+    }
+    #email,#psw,#name{
+        height: 20px;
+        border: 1px solid red;
+        color: chocolate;
+        background-color: beige;
+    }
+    #btn{
+        width: 100%;
+        height: 30px;
+        background-color: palevioletred;
+        /* color: chocolate; */
     }
 </style>
 </head>
 <body>
     <div class="cont">
+        <hr>
         <div id="top">
-            <a href="./index.html"><img src="ip3.png" alt=""></a>
+            <a href="./index.html" id="anchor"><img src="./image/ip3.png" alt="" ></a>
         </div>
         <div class="main">
             <hr>
             <h2>WELCOME TO INDIAN PRIDE</h2>
             
-            <p>Login / Register with us to get latest updates and manage your orders</p>
+            <p><h1>LOGIN</h1></p>
 
             
             <form>
           
             <label for="email">Email</label>
             <br>
-            <input type="email" placeholder="Enter Your Email" id="email">
+            <input type="email"  style="width:98% " id="email">
             <br>
 
-            
+            <label for="psw">Name</label>
+            <br>
+            <input type="text"  style="width:98%" id="name">
+            <br>
 
 
             <label for="psw">Password</label>
             <br>
-            <input type="password" placeholder="Enter Your Mobile No" id="psw">
+            <input type="password"  style="width:98%" id="psw">
             <br>
            <br>
             
@@ -60,7 +91,7 @@
         </form>
             <p>LOGIN WITH SOCIAL MEDIA </p>
             <div id="social">
-               <a href=""> <img src="./google.png" alt=""></a><p>Google</p>
+               <a href=""> <img src="./image/google.png" alt=""></a><p>Google</p>
             </div>
         </div>
     </div>
@@ -74,12 +105,15 @@ let lsdata = JSON.parse(localStorage.getItem("added"))||[]
 let email= document.getElementById("email")
 let button =document.querySelector("button")
 let home=document.getElementById("top")
-button.addEventListener("click",()=>{
+button.addEventListener("click",(e)=>{
+    e.preventDefault()
+    if(email.value!==""){
     let flag=false
     lsdata.forEach((endd,ind)=>{
         if(lsdata[ind].email===email.value&&lsdata[ind].password===password.value)
         {
             flag=true
+            endd=endd.qunatity++
         }
     })
     if(flag===false)
@@ -88,12 +122,17 @@ button.addEventListener("click",()=>{
         
     }
     else{
-        alert("login Succesful")
+        alert("login Successful")
+        window.location.assign("http://127.0.0.1:5500/enormous-library-3081/index.html")
         
+
     }
 
+}
+else{
+    alert("Enter Email id & Password")
+}
 
-    
         
 
 

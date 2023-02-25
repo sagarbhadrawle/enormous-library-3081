@@ -7,7 +7,14 @@
     <title>t-shirt</title>
     <style>
         #box{
-            width: 100%;
+            width: 80%;
+            margin: auto;
+            display: flex;
+        
+        }
+        #filter{
+            width: 80%;
+            
         }
         #cont{
             width: 80%;
@@ -15,22 +22,67 @@
             display: grid;
             grid-template-columns: repeat(3,3fr);
             grid-template-rows: repeat(1,1fr);
+            gap: 40px;
         }
         #cont div{
-            border: 1px solid #000;
+            /* border: 1px solid cornflowerblue; */
+            /* height: 400px; */
+            text-align: center;
+            
         }
-        img{
+        #filter div{
+            width: 20%;
+            margin-left: 40px;
+        }
+
+    #cont img{
           width: 100%;
+          /* height: 500px; */
         }
         #sot{
             text-align: center;
+            /* height: 50px; */
+            width: 200px;
+        }
+        #filter{
+            padding: 45px;
+
+            display: flex;
+            margin: auto;
+        }
+        #size,#color,#sort,#range{
+            width: 200px;
+            height: 30px;
+            /* margin-left: 100px; */
+        }
+        .indiv{
+            /* background-color: blue; */
+            /* display: none; */
+            width: 80%;
+            height: 400px;
+            margin: auto;
+        }
+        .indiv img{
+            width: 100%;
+            height: 100%;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            
+        }
+        button{
+            display: block;
+            margin: auto;
+            margin-top: 10px;
+            background-color: palevioletred;
+            color: white    ;
+            /* border: none; */
+            border-color: brown;
         }
     </style>
     <link rel="stylesheet" href="./tshirt.css">
 </head>
 <body> 
 
-    <div class="headbar">
+    <div class="headbar">   
         <div>
         <a href="http://" target="_blank">E-Gift Card</a>
         </div>
@@ -61,7 +113,7 @@
         <a href="">Favorites</a>
         </div>
         <div>
-        <a href="">Checkout</a>
+        <a href="./cartpage.html">Checkout</a>
         </div>
     </div>
     <div id="navcont">
@@ -277,36 +329,84 @@
     
         
 
-    <div id="box">
-        <div id="sot">
-            <select  id="sort">
-                <option value="">sort</option>
-                <option value="lth">low to high</option>
-                <option value="htl">high to low</option>
-            </select>
+    
+        
+        <div id="filter">
+            <div id="range">
+                <select  id="range">
+                    <option value="">range</option>
+                    <option value="f">0 to 400</option>
+                    <option value="s">400 to 1000</option>
+                    <option value="t">1000 to 1600</option>
+                </select>
+
+            </div>
+          <div id="sot">
+              
+               <select  id="sort">
+                    <option value="">price</option>
+                    <option value="lth">low to high</option>
+                    <option value="htl">high to low</option>
+                </select>
+
+            </div>
+            <div id="sot">
+                <select  id="color">
+                    <option value="">color</option>
+                    <option value="blue">blue</option>
+                    <option value="black">black</option>
+                    <option value="yellow">yellow</option>
+                    <option value="brown">brown</option>
+                    <option value="light green">light green</option>
+                </select>
+                
+            </div>
+
+            <div id="sot">
+                
+                <select  id="size">
+                    <option  value="">size</option>
+                    <option value="X">X</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+        
+                </select>
+                
+            </div>
+
+            
+            
         </div>
 
-        <div id="cont">
+       
+    </div>
+    <div id="cont">
+           
 
-        </div>
     </div>
 </body>
 <script>
     let cont = document.getElementById("cont")
-
+    let clickdata =JSON.parse(localStorage.getItem("click"))||[]
     let data = [
+        
     {   id:1,
         title:"American Eagle Men Navy Colorblock T-Shirt",
         image:"https://imagescdn.aeo.in/img/app/product/7/793139-9378620.jpg?auto=format",
-        price:500,
-        category:"T-shirt"
-
+        price:200,
+        category:"T-shirt",
+        color:"blue",
+        size:"XL"
     },
     {   id:2,
         title:"American Eagle Men Navy Colorblock T-Shirt",
         image:"https://imagescdn.aeo.in/img/app/product/7/730081-8602805.jpg?auto=format",
-        price:503,
-        category:"T-shirt"
+        price:300,
+        category:"T-shirt",
+        color:"green",
+        size:"XL"
+
 
     },
     {    id:3,
@@ -314,20 +414,27 @@
         image:"https://imagescdn.aeo.in/img/app/product/7/733247-8164297.jpg?auto=format",
         price:600,
         category:"T-shirt"
+        ,
+        color:"green",
+        size:"L"
+
 
     },
     {    id:4,
         title:"American Eagle Men White Colorblock T-Shirt",
         image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
         price:700,
-        category:"T-shirt"
-
+        category:"T-shirt",
+        color:"light",
+        size:"XXL"
     },
     {    id:5,
         title:"American Eagle Men White Colorblock T-Shirt",
         image:"https://imagescdn.aeo.in/img/app/product/7/793137-9378598.jpg?auto=format",
         price:759,
-        category:"T-shirt"
+        category:"T-shirt",
+        color:"white",
+        size:"L"
 
     },
     
@@ -335,86 +442,1732 @@
         title:"American Eagle Men White Colorblock T-Shirt",
         image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
         price:800,
-        category:"T-shirt"
+        category:"T-shirt",
+        color:"light green",
+        size:"XxL"
+
 
     },
     {    id:7,
         title:"American Eagle Men White Colorblock T-Shirt",
         image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
         price:900,
-        category:"T-shirt"
-
+        category:"T-shirt",
+        color:"brown",
+        size:"X"
     },
         {    id:8,
         title:"American Eagle Men White Colorblock T-Shirt",
         image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
         price:959,
-        category:"T-shirt"
-
+        category:"T-shirt",
+        color:"brown",
+        size:"L"
     },
         {    id:9,
         title:"American Eagle Men White Colorblock T-Shirt",
         image:"https://imagescdn.aeo.in/img/app/product/7/709659-7738857.jpg?auto=format",
         price:1000,
-        category:"T-shirt"
+        category:"T-shirt",
+        size:"XL"
 
     },
     {    id:10,
         title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
         image:"https://imagescdn.aeo.in/img/app/product/7/784561-10116558.jpg?auto=format",
         price:1299,
-        category:"T-shirt"
+        category:"T-shirt",
+        size:"XXL"
 
     },
     {    id:11,
         title:"American Eagle Men Orange Super Soft Icon T-Shirt",
         image:"https://imagescdn.aeo.in/img/app/product/7/753336-9525000.jpg?auto=format",
         price:1299,
-        category:"T-shirt"
+        category:"T-shirt",
+        size:"X"
+
 
     },
     {    id:12,
         title:"American Eagle Men White Colorblock T-Shirt",
         image:"https://imagescdn.aeo.in/img/app/product/7/715332-8224908.jpg?auto=format",
         price:1299,
-        category:"T-shirt"
-
+        category:"T-shirt",
+        color:"black",
+        size:"X"
     },
     {    id:13,
         title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
         image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
         price:1599,
-        category:"T-shirt"
+        category:"T-shirt",
+        size:"L"
 
     },
     {    id:14,
         title:"American Eagle Men White Colorblock T-Shirt",
         image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
         price:1299,
-        category:"T-shirt"
-
+        category:"T-shirt",
+        color:"light green",
+        size:"L"
     },
 
+      
+    {   id:1,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793139-9378620.jpg?auto=format",
+        price:100,
+        category:"T-shirt",
+        color:"blue",
+        size:"X"
+    },
+    {   id:2,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730081-8602805.jpg?auto=format",
+        price:320,
+        category:"T-shirt",
+        color:"green",
+        size:"XL"
+
+
+    },
+    {    id:3,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/733247-8164297.jpg?auto=format",
+        price:640,
+        category:"T-shirt"
+        ,
+        color:"green",
+        size:"L"
+
+
+    },
+    {    id:4,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:700,
+        category:"T-shirt",
+        color:"light",
+        size:"XXL"
+    },
+    {    id:5,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793137-9378598.jpg?auto=format",
+        price:759,
+        category:"T-shirt",
+        color:"white",
+        size:"L"
+
+    },
+    
+    {    id:6,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:800,
+        category:"T-shirt",
+        color:"light green",
+        size:"XL"
+
+
+    },
+    {    id:7,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:900,
+        category:"T-shirt",
+        color:"brown",
+        size:"XL"
+    },
+        {    id:8,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:959,
+        category:"T-shirt",
+        color:"brown",
+        size:"XXL"
+    },
+        {    id:9,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/709659-7738857.jpg?auto=format",
+        price:1000,
+        category:"T-shirt",
+        size:"XL"
+
+    },
+    {    id:10,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784561-10116558.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"XXL"
+
+    },
+    {    id:11,
+        title:"American Eagle Men Orange Super Soft Icon T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/753336-9525000.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"X"
+
+
+    },
+    {    id:12,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/715332-8224908.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"black",
+        size:"XL"
+    },
+    {    id:13,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:1599,
+        category:"T-shirt",
+        size:"L"
+
+    },
+    {    id:14,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"light green",
+        size:"xL"
+    },
+      
+    {   id:1,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793139-9378620.jpg?auto=format",
+        price:200,
+        category:"T-shirt",
+        color:"blue",
+        size:"XXL"
+    },
+    {   id:2,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730081-8602805.jpg?auto=format",
+        price:300,
+        category:"T-shirt",
+        color:"green",
+        size:"XL"
+
+
+    },
+    {    id:3,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/733247-8164297.jpg?auto=format",
+        price:600,
+        category:"T-shirt"
+        ,
+        color:"green",
+        size:"L"
+
+
+    },
+    {    id:4,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:700,
+        category:"T-shirt",
+        color:"light",
+        size:"XXL"
+    },
+    {    id:5,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793137-9378598.jpg?auto=format",
+        price:759,
+        category:"T-shirt",
+        color:"white",
+        size:"L"
+
+    },
+    
+    {    id:6,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:800,
+        category:"T-shirt",
+        color:"light green",
+        size:"XL"
+
+
+    },
+    {    id:7,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:900,
+        category:"T-shirt",
+        color:"brown",
+        size:"XL"
+    },
+        {    id:8,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:959,
+        category:"T-shirt",
+        color:"brown",
+        size:"XXL"
+    },
+        {    id:9,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/709659-7738857.jpg?auto=format",
+        price:1000,
+        category:"T-shirt",
+        size:"XL"
+
+    },
+    {    id:10,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784561-10116558.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"XXL"
+
+    },
+    {    id:11,
+        title:"American Eagle Men Orange Super Soft Icon T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/753336-9525000.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"X"
+
+
+    },
+    {    id:12,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/715332-8224908.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"black",
+        size:"XL"
+    },
+    {    id:13,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:1599,
+        category:"T-shirt",
+        size:"L"
+
+    },
+    {    id:14,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"light green",
+        size:"xl"
+    },
+      
+    {   id:1,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793139-9378620.jpg?auto=format",
+        price:200,
+        category:"T-shirt",
+        color:"blue",
+        size:"L"
+    },
+    {   id:2,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730081-8602805.jpg?auto=format",
+        price:300,
+        category:"T-shirt",
+        color:"green",
+        size:"XXL"
+
+
+    },
+    {    id:3,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/733247-8164297.jpg?auto=format",
+        price:600,
+        category:"T-shirt"
+        ,
+        color:"green",
+        size:"X"
+
+
+    },
+    {    id:4,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:700,
+        category:"T-shirt",
+        color:"light",
+        size:"XXL"
+    },
+    {    id:5,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793137-9378598.jpg?auto=format",
+        price:759,
+        category:"T-shirt",
+        color:"white",
+        size:"L"
+
+    },
+    
+    {    id:6,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:800,
+        category:"T-shirt",
+        color:"light green",
+        size:"XXL"
+
+
+    },
+    {    id:7,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:900,
+        category:"T-shirt",
+        color:"brown",
+        size:"X"
+    },
+        {    id:8,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:959,
+        category:"T-shirt",
+        color:"brown",
+        size:"L"
+    },
+        {    id:9,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/709659-7738857.jpg?auto=format",
+        price:1000,
+        category:"T-shirt",
+        size:"XL"
+
+    },
+    {    id:10,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784561-10116558.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"XXL"
+
+    },
+    {    id:11,
+        title:"American Eagle Men Orange Super Soft Icon T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/753336-9525000.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"X"
+
+
+    },
+    {    id:12,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/715332-8224908.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"black",
+        size:"XL"
+    },
+    {    id:13,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:1599,
+        category:"T-shirt",
+        size:"L"
+
+    },
+    {    id:14,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"light green",
+        size:"L"
+    },
+      
+    {   id:1,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793139-9378620.jpg?auto=format",
+        price:200,
+        category:"T-shirt",
+        color:"blue",
+        size:"XXL"
+    },
+    {   id:2,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730081-8602805.jpg?auto=format",
+        price:300,
+        category:"T-shirt",
+        color:"green",
+        size:"XL"
+
+
+    },
+    {    id:3,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/733247-8164297.jpg?auto=format",
+        price:600,
+        category:"T-shirt"
+        ,
+        color:"green",
+        size:"XXL"
+
+
+    },
+    {    id:4,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:700,
+        category:"T-shirt",
+        color:"light",
+        size:"XXL"
+    },
+    {    id:5,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793137-9378598.jpg?auto=format",
+        price:759,
+        category:"T-shirt",
+        color:"white",
+        size:"L"
+
+    },
+    
+    {    id:6,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:800,
+        category:"T-shirt",
+        color:"light green",
+        size:"XXL"
+
+
+    },
+    {    id:7,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:900,
+        category:"T-shirt",
+        color:"brown",
+        size:"XL"
+    },
+        {    id:8,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:959,
+        category:"T-shirt",
+        color:"brown",
+        size:"L"
+    },
+        {    id:9,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/709659-7738857.jpg?auto=format",
+        price:1000,
+        category:"T-shirt",
+        size:"XL"
+
+    },
+    {    id:10,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784561-10116558.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"XXL"
+
+    },
+    {    id:11,
+        title:"American Eagle Men Orange Super Soft Icon T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/753336-9525000.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"X"
+
+
+    },
+    {    id:12,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/715332-8224908.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"black",
+        size:"XL"
+    },
+    {    id:13,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:1599,
+        category:"T-shirt",
+        size:"L"
+
+    },
+    {    id:14,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"light green",
+        size:"L"
+    },
+      
+    {   id:1,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793139-9378620.jpg?auto=format",
+        price:200,
+        category:"T-shirt",
+        color:"blue",
+        size:"L"
+    },
+    {   id:2,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730081-8602805.jpg?auto=format",
+        price:300,
+        category:"T-shirt",
+        color:"green",
+        size:"L"
+
+
+    },
+    {    id:3,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/733247-8164297.jpg?auto=format",
+        price:600,
+        category:"T-shirt"
+        ,
+        color:"green",
+        size:"X"
+
+
+    },
+    {    id:4,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:700,
+        category:"T-shirt",
+        color:"light",
+        size:"XXL"
+    },
+    {    id:5,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793137-9378598.jpg?auto=format",
+        price:759,
+        category:"T-shirt",
+        color:"white",
+        size:"L"
+
+    },
+    
+    {    id:6,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:800,
+        category:"T-shirt",
+        color:"light green",
+        size:"XXL"
+
+
+    },
+    {    id:7,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:900,
+        category:"T-shirt",
+        color:"brown",
+        size:"X"
+    },
+        {    id:8,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:959,
+        category:"T-shirt",
+        color:"brown",
+        size:"XXL"
+    },
+        {    id:9,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/709659-7738857.jpg?auto=format",
+        price:1000,
+        category:"T-shirt",
+        size:"XL"
+
+    },
+    {    id:10,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784561-10116558.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"XXL"
+
+    },
+    {    id:11,
+        title:"American Eagle Men Orange Super Soft Icon T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/753336-9525000.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"X"
+
+
+    },
+    {    id:12,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/715332-8224908.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"black",
+        size:"L"
+    },
+    {    id:13,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:1599,
+        category:"T-shirt",
+        size:"L"
+
+    },
+    {    id:14,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"light green",
+        size:"L"
+    },
+      
+    {   id:1,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793139-9378620.jpg?auto=format",
+        price:200,
+        category:"T-shirt",
+        color:"blue",
+        size:"X"
+    },
+    {   id:2,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730081-8602805.jpg?auto=format",
+        price:300,
+        category:"T-shirt",
+        color:"green",
+        size:"XL"
+
+
+    },
+    {    id:3,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/733247-8164297.jpg?auto=format",
+        price:600,
+        category:"T-shirt"
+        ,
+        color:"green",
+        size:"XLL"
+
+
+    },
+    {    id:4,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:700,
+        category:"T-shirt",
+        color:"light",
+        size:"XXL"
+    },
+    {    id:5,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793137-9378598.jpg?auto=format",
+        price:759,
+        category:"T-shirt",
+        color:"white",
+        size:"L"
+
+    },
+    
+    {    id:6,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:800,
+        category:"T-shirt",
+        color:"light green",
+        size:"XL"
+
+
+    },
+    {    id:7,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:900,
+        category:"T-shirt",
+        color:"brown",
+        size:"L"
+    },
+        {    id:8,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:959,
+        category:"T-shirt",
+        color:"brown",
+        size:"L"
+    },
+        {    id:9,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/709659-7738857.jpg?auto=format",
+        price:1000,
+        category:"T-shirt",
+        size:"XL"
+
+    },
+    {    id:10,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784561-10116558.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"XXL"
+
+    },
+    {    id:11,
+        title:"American Eagle Men Orange Super Soft Icon T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/753336-9525000.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"X"
+
+
+    },
+    {    id:12,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/715332-8224908.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"black",
+        size:"X"
+    },
+    {    id:13,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:1599,
+        category:"T-shirt",
+        size:"L"
+
+    },
+    {    id:14,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"light green",
+        size:"L"
+    },
+      
+    {   id:1,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793139-9378620.jpg?auto=format",
+        price:200,
+        category:"T-shirt",
+        color:"blue",
+        size:"XL"
+    },
+    {   id:2,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730081-8602805.jpg?auto=format",
+        price:300,
+        category:"T-shirt",
+        color:"green",
+        size:"XL"
+
+
+    },
+    {    id:3,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/733247-8164297.jpg?auto=format",
+        price:600,
+        category:"T-shirt"
+        ,
+        color:"green",
+        size:"L"
+
+
+    },
+    {    id:4,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:700,
+        category:"T-shirt",
+        color:"light",
+        size:"XXL"
+    },
+    {    id:5,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793137-9378598.jpg?auto=format",
+        price:759,
+        category:"T-shirt",
+        color:"white",
+        size:"L"
+
+    },
+    
+    {    id:6,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:800,
+        category:"T-shirt",
+        color:"light green",
+        size:"XL"
+
+
+    },
+    {    id:7,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:900,
+        category:"T-shirt",
+        color:"brown",
+        size:"X"
+    },
+        {    id:8,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:959,
+        category:"T-shirt",
+        color:"brown",
+        size:"L"
+    },
+        {    id:9,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/709659-7738857.jpg?auto=format",
+        price:1000,
+        category:"T-shirt",
+        size:"XL"
+
+    },
+    {    id:10,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784561-10116558.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"XXL"
+
+    },
+    {    id:11,
+        title:"American Eagle Men Orange Super Soft Icon T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/753336-9525000.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"X"
+
+
+    },
+    {    id:12,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/715332-8224908.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"black",
+        size:"XXL"
+    },
+    {    id:13,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:1599,
+        category:"T-shirt",
+        size:"L"
+
+    },
+    {    id:14,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"light green",
+        size:"L"
+    },
+      
+    {   id:1,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793139-9378620.jpg?auto=format",
+        price:200,
+        category:"T-shirt",
+        color:"blue",
+        size:"XL"
+    },
+    {   id:2,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730081-8602805.jpg?auto=format",
+        price:300,
+        category:"T-shirt",
+        color:"green",
+        size:"XXL"
+
+
+    },
+    {    id:3,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/733247-8164297.jpg?auto=format",
+        price:600,
+        category:"T-shirt"
+        ,
+        color:"green",
+        size:"L"
+
+
+    },
+    {    id:4,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:700,
+        category:"T-shirt",
+        color:"light",
+        size:"XXL"
+    },
+    {    id:5,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793137-9378598.jpg?auto=format",
+        price:759,
+        category:"T-shirt",
+        color:"white",
+        size:"L"
+
+    },
+    
+    {    id:6,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:800,
+        category:"T-shirt",
+        color:"light green",
+        size:"XXL"
+
+
+    },
+    {    id:7,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:900,
+        category:"T-shirt",
+        color:"brown",
+        size:"X"
+    },
+        {    id:8,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:959,
+        category:"T-shirt",
+        color:"brown",
+        size:"L"
+    },
+        {    id:9,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/709659-7738857.jpg?auto=format",
+        price:1000,
+        category:"T-shirt",
+        size:"XL"
+
+    },
+    {    id:10,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784561-10116558.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"XXL"
+
+    },
+    {    id:11,
+        title:"American Eagle Men Orange Super Soft Icon T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/753336-9525000.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"X"
+
+
+    },
+    {    id:12,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/715332-8224908.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"black",
+        size:"L"
+    },
+    {    id:13,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:1599,
+        category:"T-shirt",
+        size:"L"
+
+    },
+    {    id:14,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"light green",
+        size:"L"
+    },
+      
+    {   id:1,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793139-9378620.jpg?auto=format",
+        price:200,
+        category:"T-shirt",
+        color:"blue",
+        size:"XXL"
+    },
+    {   id:2,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730081-8602805.jpg?auto=format",
+        price:300,
+        category:"T-shirt",
+        color:"green",
+        size:"XL"
+
+
+    },
+    {    id:3,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/733247-8164297.jpg?auto=format",
+        price:600,
+        category:"T-shirt"
+        ,
+        color:"green",
+        size:"L"
+
+
+    },
+    {    id:4,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:700,
+        category:"T-shirt",
+        color:"light",
+        size:"XXL"
+    },
+    {    id:5,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793137-9378598.jpg?auto=format",
+        price:759,
+        category:"T-shirt",
+        color:"white",
+        size:"L"
+
+    },
+    
+    {    id:6,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:800,
+        category:"T-shirt",
+        color:"light green",
+        size:"XXL"
+
+
+    },
+    {    id:7,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:900,
+        category:"T-shirt",
+        color:"brown",
+        size:"X"
+    },
+        {    id:8,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:959,
+        category:"T-shirt",
+        color:"brown",
+        size:"L"
+    },
+        {    id:9,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/709659-7738857.jpg?auto=format",
+        price:1000,
+        category:"T-shirt",
+        size:"XL"
+
+    },
+    {    id:10,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784561-10116558.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"XXL"
+
+    },
+    {    id:11,
+        title:"American Eagle Men Orange Super Soft Icon T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/753336-9525000.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"X"
+
+
+    },
+    {    id:12,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/715332-8224908.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"black",
+        size:"L"
+    },
+    {    id:13,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:1599,
+        category:"T-shirt",
+        size:"L"
+
+    },
+    {    id:14,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"light green",
+        size:"L"
+    },
+      
+    {   id:1,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793139-9378620.jpg?auto=format",
+        price:200,
+        category:"T-shirt",
+        color:"blue",
+        size:"XXL"
+    },
+    {   id:2,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730081-8602805.jpg?auto=format",
+        price:300,
+        category:"T-shirt",
+        color:"green",
+        size:"XL"
+
+
+    },
+    {    id:3,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/733247-8164297.jpg?auto=format",
+        price:600,
+        category:"T-shirt"
+        ,
+        color:"green",
+        size:"L"
+
+
+    },
+    {    id:4,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:700,
+        category:"T-shirt",
+        color:"light",
+        size:"XXL"
+    },
+    {    id:5,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793137-9378598.jpg?auto=format",
+        price:759,
+        category:"T-shirt",
+        color:"white",
+        size:"L"
+
+    },
+    
+    {    id:6,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:800,
+        category:"T-shirt",
+        color:"light green",
+        size:"XL"
+
+
+    },
+    {    id:7,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:900,
+        category:"T-shirt",
+        color:"brown",
+        size:"XXL"
+    },
+        {    id:8,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:959,
+        category:"T-shirt",
+        color:"brown",
+        size:"XL"
+    },
+        {    id:9,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/709659-7738857.jpg?auto=format",
+        price:1000,
+        category:"T-shirt",
+        size:"XL"
+
+    },
+    {    id:10,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784561-10116558.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"XXL"
+
+    },
+    {    id:11,
+        title:"American Eagle Men Orange Super Soft Icon T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/753336-9525000.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"X"
+
+
+    },
+    {    id:12,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/715332-8224908.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"black",
+        size:"L"
+    },
+    {    id:13,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:1599,
+        category:"T-shirt",
+        size:"L"
+
+    },
+    {    id:14,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"light green",
+        size:"L"
+    },
+      
+    {   id:1,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793139-9378620.jpg?auto=format",
+        price:200,
+        category:"T-shirt",
+        color:"blue",
+        size:"XL"
+    },
+    {   id:2,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730081-8602805.jpg?auto=format",
+        price:300,
+        category:"T-shirt",
+        color:"green",
+        size:"XL"
+
+
+    },
+    {    id:3,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/733247-8164297.jpg?auto=format",
+        price:600,
+        category:"T-shirt"
+        ,
+        color:"green",
+        size:"L"
+
+
+    },
+    {    id:4,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:700,
+        category:"T-shirt",
+        color:"light",
+        size:"XXL"
+    },
+    {    id:5,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793137-9378598.jpg?auto=format",
+        price:759,
+        category:"T-shirt",
+        color:"white",
+        size:"L"
+
+    },
+    
+    {    id:6,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:800,
+        category:"T-shirt",
+        color:"light green",
+        size:"XXL"
+
+
+    },
+    {    id:7,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:900,
+        category:"T-shirt",
+        color:"brown",
+        size:"X"
+    },
+        {    id:8,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:959,
+        category:"T-shirt",
+        color:"brown",
+        size:"L"
+    },
+        {    id:9,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/709659-7738857.jpg?auto=format",
+        price:1000,
+        category:"T-shirt",
+        size:"XL"
+
+    },
+    {    id:10,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784561-10116558.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"XXL"
+
+    },
+    {    id:11,
+        title:"American Eagle Men Orange Super Soft Icon T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/753336-9525000.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"X"
+
+
+    },
+    {    id:12,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/715332-8224908.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"black",
+        size:"XXL"
+    },
+    {    id:13,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:1599,
+        category:"T-shirt",
+        size:"L"
+
+    },
+    {    id:14,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"light green",
+        size:"L"
+    },
+      
+    {   id:1,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793139-9378620.jpg?auto=format",
+        price:200,
+        category:"T-shirt",
+        color:"blue",
+        size:"XL"
+    },
+    {   id:2,
+        title:"American Eagle Men Navy Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730081-8602805.jpg?auto=format",
+        price:300,
+        category:"T-shirt",
+        color:"green",
+        size:"XL"
+
+
+    },
+    {    id:3,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/733247-8164297.jpg?auto=format",
+        price:600,
+        category:"T-shirt"
+        ,
+        color:"green",
+        size:"L"
+
+
+    },
+    {    id:4,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:700,
+        category:"T-shirt",
+        color:"light",
+        size:"XXL"
+    },
+    {    id:5,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/793137-9378598.jpg?auto=format",
+        price:759,
+        category:"T-shirt",
+        color:"white",
+        size:"L"
+
+    },
+    
+    {    id:6,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:800,
+        category:"T-shirt",
+        color:"light green",
+        size:"XL"
+
+
+    },
+    {    id:7,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:900,
+        category:"T-shirt",
+        color:"brown",
+        size:"X"
+    },
+        {    id:8,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/739559-8887675.jpg?auto=format",
+        price:959,
+        category:"T-shirt",
+        color:"brown",
+        size:"L"
+    },
+        {    id:9,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/709659-7738857.jpg?auto=format",
+        price:1000,
+        category:"T-shirt",
+        size:"XL"
+
+    },
+    {    id:10,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784561-10116558.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"XXL"
+
+    },
+    {    id:11,
+        title:"American Eagle Men Orange Super Soft Icon T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/753336-9525000.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        size:"X"
+
+
+    },
+    {    id:12,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/715332-8224908.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"black",
+        size:"L"
+    },
+    {    id:13,
+        title:"American Eagle Men Green Slim Fit Pique Polo Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/784560-10116547.jpg?auto=format",
+        price:1599,
+        category:"T-shirt",
+        size:"L"
+
+    },
+    {    id:14,
+        title:"American Eagle Men White Colorblock T-Shirt",
+        image:"https://imagescdn.aeo.in/img/app/product/7/730093-8634745.jpg?auto=format",
+        price:1299,
+        category:"T-shirt",
+        color:"light green",
+        size:"xL"
+    },
 
 ]
-
+display(data)
+let lsdata= JSON.parse(localStorage.getItem("product"))||[]
+function display(data){
+    let click= document.getElementById("click")
+    cont.innerText=""
     data.forEach((el)=>{
         let div =document.createElement("div")
+        div.setAttribute("id","click")
         let title = document.createElement("h4")
         let image=document.createElement("img")
         let price = document.createElement("p")
-
+        let button =document.createElement("button")
+        let Favorites=document.createElement("button")
         title.innerText=el.title
         image.src=el.image
-        price.innerText=+el.price+"rs"
-    div.append(image,title,price)
+        price.innerText="₹" +el.price,
+        button.innerText="Add to cart"
+
+        el.quantity=1
+        button.addEventListener("click",(()=>{
+            alert("product added to cart")
+            lsdata.push(el)
+            localStorage.setItem("product",JSON.stringify(lsdata))
+        }))
+        // click.addEventListener("click",(()=>{
+        //     clickdata.push(el)
+        //     localStorage.setItem("click",JSON.stringify(clickdata))
+        // }))
+
+        Favorites.innerText="Add to favorites"
+        Favorites.addEventListener("click",(()=>{
+            alert("product added to favorites")
+            lsdata.push(el)
+            localStorage.setItem("product",JSON.stringify(lsdata))
+        }))
+        let indiv=document.createElement("div")
+        indiv.setAttribute("class","indiv")
+        indiv.append(image)
+
+    div.append(indiv,title,price,Favorites,button)
     cont.append(div)
     })
+}
 
-    let sot = document.getElementById("sot")
+// let clickdata= JSON.parse(localStorage.getItem("clickdata"))||[]
+
+// click.addEventListener("click",()=>{
+
+// })
+
+
+//  sorting is here
+    let sot = document.getElementById("sort")
     sot.addEventListener("change",(()=>{
-        
+        let color = document.getElementById("color").value
+        let size = document.getElementById("size").value
+
+        if(sot.value=="")
+       {
+            display(data)
+        }
+        else{   
+                let colorfilter = data.filter((el,ind)=>{
+                    if(el.color===color)
+                    {
+                        return true
+                    }
+                })
+
+                let sizefilter=colorfilter.filter((el,ind)=>{
+                    if(el.size===size)
+                    {
+                        return true
+                    }
+                })
+                if(sot.value==="htl"&&sizefilter!=="")
+                {   
+                
+                    let sort =sizefilter.sort((a,b)=>{
+                        return b.price - a.price
+                    })
+                    display(sort)
+                }
+                else{
+                    let sort = sizefilter.sort((a,b)=>{
+                        return a.price - b.price
+                    })
+                    display(sort)
+                }
+            
+        }
     }))
+// color is here
+    let color = document.getElementById("color")
+    color.addEventListener("change",(()=>{
+        if(color.value==="")
+        {   display(data)   
+        }
+        else{
+            let colored = data.filter((a,b)=>{
+                if(a.color===color.value)
+                {
+                    return true
+                }else{return false}
+            })
+            display(colored)
+        }
+    }))
+
+
+    //  size is here
+
+    let size = document.getElementById("size")
+    size.addEventListener("change",(()=>{
+        if(size==="")
+        {
+            display(data)
+        }
+        else
+        {
+            let sized= data.filter((el,ind)=>{
+                if(el.size==size.value)
+                {
+                    return true
+                }
+                else{
+                    return false
+                }
+            })
+            display(sized)
+        }
+    }))
+
+
+    //  range is here
+
+    let range= document.getElementById("range")
+    range.addEventListener("change",(()=>{
+        if(range.value==="")
+        {
+            display(range)
+        }
+        else{
+            let ranged =data.filter((elm,b)=>{
+                if(range.value=="f"&&+elm.price<=400)
+                {
+                   
+                        return true
+                    
+                }
+                
+                // else if(range.value=="s")
+                // {
+                //     if(+elm.price>=400&&+elm.price<=1000)
+                //     {
+                //         return true
+                //     }
+                // }
+                // else if(range.value=="t")
+                // {
+                //     if(+elm.value>=1000)
+                //     {
+                //         return true
+                //     }
+                // }
+            })
+            display(ranged)
+        }
+    }))
+
+
+// localStorage.clear()
+
+
+
+
 
 </script>
 
