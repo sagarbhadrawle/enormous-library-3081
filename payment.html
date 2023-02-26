@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./payment.css">
+    <link rel="stylesheet" href="./cartpage.css">
+    <style>
+        #logo{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <div id="logo">
+           <a href="./index.html"> <img src="./image/ip3.png" alt=""></a>
+        </div>
+        <div id="help">
+            <img src="./image/mail.png" alt="">
+            <p>happytohelpip.com</p>
+        </div>
+    </div>
+    <div id="container">
+        <div id="card">
+            <h1>Enter the Card detail</h1>
+            <h4>Card Number</h6>
+            <input type="text" placeholder="Enter 16 digit card number">
+            <div id="expiry">
+                <div>
+                    <h4>Card Expiry Date</h6>
+                    <input type="text" placeholder="MM/YY"></div>
+                <div>
+                    <h4>CVV</h6>
+                    <input type="text">
+                </div>
+            </div>
+        </div>
+        <button id="btn" onclick="fun()">Send otp</button>
+
+        <div id="otp">
+            <h3 style="color: green;">Otp Sent to your Register Mobile No</h3>
+            <input type="text" placeholder="Enter Otp">
+            <br>
+            <button id="sumb">Sumbit</button>
+        </div>
+    </div>
+    
+
+
+</body>
+<script src="./payment.js"></script>
+</html>

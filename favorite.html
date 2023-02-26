@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 100%;
+        }
+        img{
+            width: 100%;
+        }
+           #container{
+            /* width: 80%; */
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            /* grid-template-rows: repeat(1,1fr); */
+            gap: 40px;
+        }
+        #container div{
+            /* border: 1px solid cornflowerblue; */
+            /* height: 400px; */
+            text-align: center;
+            
+        }
+        
+        .indiv{
+            /* background-color: blue; */
+            /* display: none; */
+            width: 80%;
+            height: 400px;
+            margin: auto;
+        }
+        .indiv img{
+            width: 100%;
+            height: 100%;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            
+        }
+    </style>
+    <link rel="stylesheet" href="./tshirt.css">
+</head>
+<body>
+    <div class="headbar">   
+        <div>
+        <a href="http://" target="_blank">E-Gift Card</a>
+        </div>
+        <div>
+        <a href="">Store Locator</a>
+        </div>
+        <div>
+        <a href="">Trach Order</a>
+        </div>
+        <div id="myip">
+        <a href="#" id="ip">My IP
+            <div id="dropip">
+                <a href="./loginpage.html"><button id="signbtn">SIGN IN</button></a>
+                <a href="">IP Credit</a>
+                <a href="">Online order History</a>
+                <a href="">Giftcard Order History</a>
+                <a href="">Account Settings</a>
+                <a href="">Shipping Addresses</a>
+                <hr>
+                <span>Don't Have an account?</span>
+                <a href="./register.html">Create Account</a>
+
+
+            </div>
+      
+        </div>
+        <div>
+        <a href="">Favorites</a>
+        </div>
+        <div>
+        <a href="./cartpage.html">Checkout</a>
+        </div>
+    </div>
+    <div id="navcont">
+        <div id="navbar"> 
+            <div id="logo">
+              <div><a href="./index.html"><img src="./image/ip3.png" alt=""></a> </div>
+              <div id="men">Men
+
+
+                <div id="dropcont">
+
+                    <div id="first">
+                        <div><a href="">TOP</a></div>
+                        <div><a href="">T-Shirts</a></div>
+                        <div><a href="">Graphic Tees</a></div>
+                        <div><a href="">Shirts</a></div>
+                        <div><a href="">Jackets</a></div>
+                        <div><a href="">Hoodies & Sweatshirts</a></div>
+                   
+                    </div>
+        
+                    <div  id="second">
+                        <div><a href="">BOTTOM</a></div>
+                        <div><a href="">Shorts</a></div>
+                        <div><a href="">Joggers</a></div>
+                        <div><a href="">Chinos</a></div>
+                    </div>
+        
+                    <div id="third">
+                        <div><a href="">UNDERWEAR</a></div>
+                    </div>
+        
+        
+                    <div id="fourth">
+                        <div><a href="">SHOES AND ACCESSORIES</a></div>
+                        <div><a href="">Socks</a></div>
+                        <div><a href="">Belts</a></div>
+                    </div>
+        
+                    <div id="fivth">
+                        <div><a href="">FEATURED</a></div>
+                        <div><a href="">New Arrivals</a></div>
+                        <div><a href="">Best Sellers</a></div>
+                        <div><a href="">Airflex Jeans</a></div>
+                        <div><a href="">Ripped Jeans</a></div>
+                        <div><a href="">The Logo Shop</a></div>
+                        <div><a href="">Stripe Edit</a></div>
+                    </div>
+        
+        
+                </div>
+
+              </div>
+                <div id="women">Women
+
+
+                    
+                <div id="dropcont">
+
+                    <div id="first">
+                        <div><a href="">T-Shirts</a></div>
+                        <div><a href="">Graphic Tees</a></div>
+                        <div><a href="">Shirts</a></div>
+                        <div><a href="">Sweaters & Cardigan</a></div>
+                        <div><a href="">Jackets</a></div>
+                        <div><a href="">Hoodies & Sweatshirts</a></div>
+                   
+                    </div>
+        
+                    <div  id="second">
+                        <div><a href="">BOTTOM</a></div>
+                        <div><a href="">Jeans</a></div>
+                        <div><a href="">Shorts</a></div>
+                        <div><a href="">Pants</a></div>
+                        <div><a href="">Skirts</a></div>
+                        <div><a href="">Joggers</a></div>
+                    </div>
+        
+                    <div id="third">
+                        <div><a href="">DRESSES</a></div>
+                        <div><a href="">Midi Dresses</a></div>
+                        <div><a href="">Jumpsuits</a></div>
+                        <div><a href="">Maxi Dresses</a></div>
+                        <div><a href="">Mini Dresses</a></div>
+                        <div><a href="">Rompers</a></div>
+                        <div><a href="">Shift Dresses</a></div>
+                        <div><a href="">Shirt Dresses</a></div>
+                    </div>
+        
+        
+                    <div id="fourth">
+                        <div><a href="">SHOES AND ACCESSORIES</a></div>
+                        <div><a href="">Socks</a></div>
+                        <div><a href="">Socks</a></div>
+                        <div><a href="">Sunglasses</a></div>
+                        <div><a href="">Belts</a></div>
+                        <div><a href="">Bags</a></div>  
+                        <div><a href="">Jewelry</a></div>
+                    </div>
+        
+                    <div id="fivth">
+                        <div><a href="">FEATURED</a></div>
+                        <div><a href="">New Arrivals</a></div>
+                        <div><a href="">Crop Edit</a></div>
+                        <div><a href="">Ripped Jeans</a></div>
+                        <div><a href="">The Logo Shop</a></div>
+                        <div><a href="">Curvy Destination</a></div>
+                        <div><a href="">Dream Jeans</a></div>
+                        <div><a href="">The Dress Shop</a></div>
+                        <div><a href="">Stripe </a></div>
+                    </div>
+        
+        
+                </div>
+
+                </div>
+                <div id="jeans">Jeans
+
+                           
+                <div id="dropcont">
+
+                    <div id="first">
+                        <div><a href="">MENS JEANS</a></div>
+                        <div><a href="">Skinny Jeans</a></div>
+                    <div><a href="">Slim Jeans</a></div>
+                    <div><a href="">Straight Jeans</a></div>
+                    <div><a href="">Airfiex Jeans</a></div>
+                    <div><a href="">Bootcut Jeans</a></div>
+                    <div><a href="">Slim Jeans</a></div>
+                    <div><a href="">Straight Jeans</a></div>
+                    <div><a href="">Airfiex Jeans</a></div>
+                    <div><a href="">Bootcut Jeans</a></div>
+                   
+                    </div>
+        
+                    <div  id="second">
+                        <div><a href="">WOMENS JEANS</a></div>
+                        <div><a href="">Artist Fiare Jeans</a></div>
+                        <div><a href="">Curvy Jeans</a></div>
+                        <div><a href="">Jeggings</a></div>
+                        <div><a href="">Hi Rise Jeans</a></div>
+                        <div><a href="">Cropped Jeans</a></div>
+                        <div><a href="">Kickboot Jeans</a></div>
+                        <div><a href="">Mom Jeans</a></div>
+                        <div><a href="">Skinny Jeans</a></div>
+                        <div><a href="">Bootcut Jeans</a></div>
+                        <div><a href="">Cropped Jeans</a></div>
+                        <div><a href="">Kickboot Jeans</a></div>
+                    </div>
+        
+                  
+        
+        
+                </div>
+
+
+
+                </div>
+                <div id="sale">Sale
+
+
+                             
+                <div id="dropcont">
+
+                    <div id="first">
+                        <div><a href="">MENS SALE</a></div>
+                        <div><a href="">Bottoms</a></div>
+                      
+                   
+                    </div>
+        
+                    <div  id="second">
+                        <div><a href="">WOMENS SALE</a></div>
+                        <div><a href="">Tops</a></div>
+                        <div><a href="">Bottoms</a></div>
+                        <div><a href="">Jeans</a></div>
+                    </div>
+        
+                    <div id="third">
+                        <div><a href="">LAST OF THE BEST</a></div>
+                        <div><a href="">Upto 60 percent Off</a></div>
+                        
+                    </div>
+        
+        
+                    <div id="fourth">
+                        <div><a href="">WOMENS FEST</a></div>
+                        
+                    </div>
+        
+        
+                </div>
+
+
+                </div>
+                <div id="winter">Winter Wear</div>
+            </div>
+            
+            <div id="searchbar">
+                <input type="search"  placeholder="Search here" id="input">
+                <a href="#"><i class="fa fa-search icon search" ></i></a>
+            </div>
+        </div>
+        
+        
+
+
+    </div>
+     <div id="rednav">
+        10% off on your first purchase! Use Code: AEFIRST1
+    </div>
+
+        <div id="container">
+
+        </div>
+</body>
+<script>
+    let favorite= JSON.parse(localStorage.getItem("favorite"))||[]
+    console.log(favorite)
+    display(favorite)
+
+    function display(data){
+        let cont= document.getElementById("container")
+    cont.innerText=""
+    data.forEach((el,ind)=>{
+        let div =document.createElement("div")
+        div.setAttribute("id","click")
+        let title = document.createElement("h4")
+        let image=document.createElement("img")
+        let price = document.createElement("p")
+        let button =document.createElement("button")
+        // let Favorites=document.createElement("button")
+
+
+        title.innerText=el.title
+        image.src=el.image
+        price.innerText="₹" +el.price,
+        button.innerText="Add to cart"
+
+        button.addEventListener("click",(()=>{
+            alert("product added to cart")
+            favorite.push(el)
+            localStorage.setItem("product",JSON.stringify(favorite))
+        }))
+        // click.addEventListener("click",(()=>{
+        //     clickdata.push(el)
+        //     localStorage.setItem("click",JSON.stringify(clickdata))
+        // }))
+
+        let remove = document.createElement("button")
+        remove.innerText = "Delete"
+        // remove.style.backgroundColor = "red"
+        remove.addEventListener("click", (() => {
+            favorite = favorite.filter((a, b) => {
+                return b !== ind
+            })
+            //  for total price
+
+            display(favorite)
+
+            localStorage.setItem("product", JSON.stringify(favorite))
+        }))
+        let indiv=document.createElement("div")
+        indiv.setAttribute("class","indiv")
+        indiv.append(image)
+
+    div.append(indiv,title,price,button,remove)
+    cont.append(div)
+    })
+}
+let signbtn=document.getElementById("ip")
+signbtn.innerText="sagar bhadrawle"
+</script>
+
+
+</html>

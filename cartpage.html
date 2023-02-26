@@ -36,12 +36,13 @@
     </div>
 
 
-    <div id="container">
+    <div id="container">  
             <!-- left part -->
         <div id="cart">
             <div id="yourcart">
                 <div id="item">1. YOUR CART <span id="quant"></span>Item</div>
-                <div id="edit"><a href="">Edit</a>
+                <div id="edit"> <button id="btn">Edit</button>
+                    <button id="cancel">Cancel</button>
                  
                         
                         <div id="content">
@@ -59,7 +60,45 @@
             </div>
             <hr>
             <span id="total">Total:-Rs <span id="price"></span></span>
+            
+            <!-- Shipping details -->
+            <div id="ship">
+                
+                <h4>2. SHIPPING DETAILS</h4>
+                <hr>
+                <button id="address">Add address</button>
+                <button id="editaddress">Edit Address</button>
+                <div id="Address">
+                    <form>
+                    <input type="text" placeholder="enter pin code" id="pincode">
+                    <input type="text" placeholder="First Name" id="Fn">
+                    <input type="text" placeholder="Last Name" id="Ln">
+                    <input type="text" placeholder="Mobile No" id="mo">
+                    <!-- <input type="text" placeholder="Mobile No" id="mo"> -->
+                    <input type="text" placeholder="Address line 1" id="Addressline1">
+                    <input type="text" placeholder="Address line 2" id="Addressline2">
+                    <input type="text" placeholder="Landmark" id="Landmark">
+                    <input type="text" placeholder="city" id="city">
+                    <input type="text" placeholder="State" id="state">
+                    <!-- <button id="sumbit">Sumbit</button> -->
+                        <input type="submit">
+                </form>
+                </div>
 
+                <div id="showaddress">
+
+                </div>
+                
+            <!-- Payment option -->
+
+            <div id="payment">
+                <h4>Payment option</h4>
+                <button id="payment">Pay</button>
+            </div>
+                    
+
+
+            </div>
 
         </div>
 
@@ -83,11 +122,15 @@
                 <h3>Total</h3>
                 <p id="rupee"></p>
             </div>
-            </div>
+            </div>  
             <h3> <img id="shield" src="./image/shield.png" alt=""> Safe and Secure Payments.
                 Easy returns. 100% Authentic products</h3>
         </div>
+
     </div>
+      
+        
+
     <!-- <div id="cont">
            
 
@@ -99,6 +142,7 @@
     // display(lsdata)
     function display(data){
         let cont = document.getElementById("cont")
+        
     cont.innerText=""
     data.forEach((el)=>{
         let div =document.createElement("div")
