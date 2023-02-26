@@ -6,6 +6,11 @@ body{
 *{
     box-sizing: border-box;
 }
+a[href]{
+    color: black;
+    font-weight: bold;
+    /* background-color: white; */
+}
 .headbar{
     /* border: 1px solid red; */
     width: 100%;
@@ -67,6 +72,11 @@ body{
 
     
 }
+.headbar a:hover{
+    /* color: white; */
+    /* background-color: black; */
+}
+
 
 #men:hover,#women:hover,#jeans:hover,#sale:hover,#winter:hover{
     background-color: black;
@@ -366,6 +376,7 @@ body{
 }
 
 #signbtn:hover{
+    width:100%;
     background-color:sandybrown;
     cursor: pointer;
 }

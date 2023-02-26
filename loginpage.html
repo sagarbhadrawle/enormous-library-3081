@@ -16,13 +16,16 @@
         box-sizing: border-box;
     }
     .cont{
-        /* padding: 10px; */
+        /* margin-top: 100px; */
+        padding: 20px;
         width: 25%;
+        height: 100%;
         margin: auto;
         background-color: aliceblue;
         /* border-radius: 25px; */
-        border: 1px solid #000;
+        border: 10px solid #000;
         /* text-align: center; */
+        
     }
    #social img{
         width: 30px;
@@ -41,7 +44,7 @@
         text-align: center;
     }
     #email,#psw,#name{
-        height: 20px;
+        height: 30px;
         border: 1px solid red;
         color: chocolate;
         background-color: beige;
@@ -52,6 +55,17 @@
         background-color: palevioletred;
         /* color: chocolate; */
     }
+
+    #signup{
+        width: 100%;
+        height: 30px;
+        background-color: palevioletred;
+        /* color: chocolate; */
+    }
+    #or{
+        text-align: center;
+    }
+    
 </style>
 </head>
 <body>
@@ -87,7 +101,13 @@
            <br>
             
           <button id="btn">Login</button>
-      
+          <br>
+          <hr>
+          <p id="or">OR</p>
+          <hr>
+          <br>
+          <button  id="signup" onclick="fun()">Sign Up</button>
+                
         </form>
             <p>LOGIN WITH SOCIAL MEDIA </p>
             <div id="social">
@@ -98,7 +118,7 @@
 </body>
 
 <script>
-let lsdata = JSON.parse(localStorage.getItem("added"))||[]
+let lsdata = JSON.parse(localStorage.getItem("login"))||[]
 
  let password=document.getElementById("psw")
 
@@ -137,7 +157,15 @@ else{
 
 
 })
+function fun(){
+    // let signup=document.getElementById("signup")
 
+    window.location.assign("http://127.0.0.1:5500/enormous-library-3081/index.html")
+}
+
+signup.addEventListener("click",(()=>{
+    console.log("pas")
+}))
 
 
 </script>

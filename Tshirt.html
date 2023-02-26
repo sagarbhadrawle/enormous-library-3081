@@ -93,7 +93,7 @@
         <a href="">Trach Order</a>
         </div>
         <div id="myip">
-        <a href="#">My IP
+        <a href="#" id="ip">My IP
             <div id="dropip">
                 <a href="./loginpage.html"><button id="signbtn">SIGN IN</button></a>
                 <a href="">IP Credit</a>
@@ -110,7 +110,7 @@
       
         </div>
         <div>
-        <a href="">Favorites</a>
+        <a href="./favorite.html">Favorites</a>
         </div>
         <div>
         <a href="./cartpage.html">Checkout</a>
@@ -1994,6 +1994,9 @@
 ]
 display(data)
 let lsdata= JSON.parse(localStorage.getItem("product"))||[]
+
+let signbtn=document.getElementById("ip")
+signbtn.innerText="sagar bhadrawle"
 function display(data){
     let click= document.getElementById("click")
     cont.innerText=""
@@ -2005,6 +2008,8 @@ function display(data){
         let price = document.createElement("p")
         let button =document.createElement("button")
         let Favorites=document.createElement("button")
+
+
         title.innerText=el.title
         image.src=el.image
         price.innerText="₹" +el.price,
@@ -2025,7 +2030,7 @@ function display(data){
         Favorites.addEventListener("click",(()=>{
             alert("product added to favorites")
             lsdata.push(el)
-            localStorage.setItem("product",JSON.stringify(lsdata))
+            localStorage.setItem("favorite",JSON.stringify(lsdata))
         }))
         let indiv=document.createElement("div")
         indiv.setAttribute("class","indiv")
@@ -2170,7 +2175,6 @@ function display(data){
 
 
 </script>
-
 
 
 

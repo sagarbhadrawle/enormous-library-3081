@@ -1,0 +1,53 @@
+body{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+*{
+    box-sizing: border-box;
+}
+#container{
+    padding: 30px;
+    width: 30%;
+    margin: auto;
+    background-color: rgb(206, 191, 191);
+}
+#expiry{
+    display: flex;
+    margin: auto;
+}
+#btn{
+    text-align: center;
+}
+input{
+    height: 30px;
+}
+#expiry div{
+    margin-right: 30px;
+}
+#btn{
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 150px;
+    background-color: palevioletred;
+    border-color: white;
+    color:white;
+}
+#btn:hover{
+    background-color: red;
+}
+
+#otp{
+    display: none;
+}
+#otp input{
+margin-left: 100px;
+}
+#sumb{
+    margin-top: 20px;
+    margin-left: 150px;
+    height: 30px;
+}
+#otp h3{
+    text-align: center;
+}

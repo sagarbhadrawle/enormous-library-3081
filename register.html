@@ -86,7 +86,7 @@
 
             <label for="psw">Password</label>
             <br>
-            <input type="password"  style="width:98% " placeholder="Enter Your Mobile No" id="psw">
+            <input type="password"  style="width:98% "   id="psw">
             <br>
            <br>
             
@@ -122,6 +122,7 @@ let obj={
 
 lsdata.push(obj)
 localStorage.setItem("added",JSON.stringify(lsdata))
+localStorage.setItem("login",JSON.stringify(lsdata))
 window.location.assign("http://127.0.0.1:5500/enormous-library-3081/index.html")
 
         

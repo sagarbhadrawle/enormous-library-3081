@@ -57,15 +57,16 @@ body{
     border: 1px solid #000;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 20px;
-    border: 9px solid #000;
+    /* border: 9px solid #000; */
     margin: auto;
-    
+    margin-top: -0px;
+    /* border: 1px solid #000; */
 }
 #yourcart{
     display: flex;
-    width: 90%;
+    width: 100%;
     /* border: 10px solid yellow; */
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 #total{
     /* border: 1px solid red; */
@@ -79,7 +80,7 @@ body{
 #edit{
     position: relative;
 /* display: flex; */
-/* width: 50%; */
+width: 70%;
 
 }
 
@@ -91,7 +92,8 @@ body{
 
 }
 #item{
-    /* width: 10%; */
+    width: 20%;
+    /* margin-left: -170px; */
 }
 
 
@@ -105,12 +107,12 @@ body{
  background-color:white;
  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
 }
-#edit:hover #content,#edit{
+/* #edit:hover #content,#edit{
     display: block;
     width: 90%;
-      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     
-}
+} */
 #title{
     width: 200%;
 }
@@ -129,15 +131,19 @@ body{
     
 }       
 
-.fit img{
+#content img{
     width: 100%;
+    height: 100px;
+    /* width: 60%;
+    height: 60%; */
+    
     /* display: inline-block; */
 }
 
 .ffff{
     display: flex;
     /* border: 8px solid #000; */
-    width: 100%;
+    /* width: 100%; */
     /* margin: auto; */
     justify-content: space-evenly;
 }
@@ -147,6 +153,7 @@ body{
     border: 1px solid #000;
     background-color: rgba(230, 222, 222, 0.568);
     padding: 20px;
+    z-index: 1;
 }
 #coupan{
     width:100%;
@@ -171,3 +178,14 @@ body{
     display: flex;
     justify-content: space-between;
 }
+
+
+/*  */
+
+#showaddress p{
+    font-size: 12px;
+}
+form{
+    display: none;
+}
+

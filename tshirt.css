@@ -228,7 +228,10 @@ body{
     
 }
 
-
+a[href]{
+    color: black;
+    font-weight: bold;
+}
 
 /* sign in drop */
 #dropip button{
